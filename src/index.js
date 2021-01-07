@@ -7,17 +7,17 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 
-const App = React.lazy(() => import('./App'))
-const Counter = React.lazy(() => import('./Counter'))
-const Hooks = React.lazy(() => import('./Hooks'))
+// const App = React.lazy(() => import('./App'))
+// const Counter = React.lazy(() => import('./Counter'))
+// const Hooks = React.lazy(() => import('./Hooks'))
+
+import Application from './router/router'
 
 ReactDOM.render(
   <React.StrictMode>
- <Suspense fallback={<div>loading...</div> }>
-    <App />
-    <Counter/>
-    <Hooks/>
- </Suspense>
+        <Suspense fallback={<div>loading...</div> }>
+            <Application />
+        </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
