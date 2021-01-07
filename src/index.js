@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Counter from './Counter'
-import Hooks from './Hooks'
+// import App from './App';
+// import Counter from './Counter'
+// import Hooks from './Hooks'
 import reportWebVitals from './reportWebVitals';
+
+
+const App = React.lazy(() => import('./App'))
+const Counter = React.lazy(() => import('./Counter'))
+const Hooks = React.lazy(() => import('./Hooks'))
 
 ReactDOM.render(
   <React.StrictMode>
+ <Suspense fallback={<div>loading...</div> }>
     <App />
     <Counter/>
     <Hooks/>
+ </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

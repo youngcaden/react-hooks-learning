@@ -26,6 +26,9 @@ function Counter() {
 
             Count: {count}
             <hr/>
+            
+            A: {a}
+            <hr/>
             <button onClick={() => setCount(count + 1)}>+</button>
             <button onClick={() => setCount(count - 1)}>-</button>
             <br />

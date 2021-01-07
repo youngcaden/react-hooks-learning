@@ -23,7 +23,7 @@ function Counter() {
   useEffect(() => {
       prevCountRef.current = state.count
       console.log(prevCountRef.current);
-  })
+  },[state])
   const prevCount = prevCountRef.current;
 
   return (
