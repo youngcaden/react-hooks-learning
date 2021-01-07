@@ -12,10 +12,11 @@ import reportWebVitals from './reportWebVitals';
 // const Hooks = React.lazy(() => import('./Hooks'))
 
 import Application from './router/router'
+import Loading from './components/Loading'
 
 ReactDOM.render(
   <React.StrictMode>
-        <Suspense fallback={<div>loading...</div> }>
+        <Suspense fallback={<Loading /> }>
             <Application />
         </Suspense>
   </React.StrictMode>,
