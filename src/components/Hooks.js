@@ -18,6 +18,7 @@ function Counter() {
 
     useEffect(() => {
         console.log('this is effect')
+        fn()
     }, [fn])
     // 当dependency数组里面是f1时，不管更新count还是a，都会执行里面的函数，打印出this is effect
     // 当dependency数组里面是fn时，只有更新a时才会执行该函数
