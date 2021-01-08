@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback, useEffect } from 'react'
-
+import ReactDOM from 'react-dom';
 
 function Counter() {
     const [count, setCount] = useState(0);
@@ -21,6 +21,11 @@ function Counter() {
     }, [fn])
     // 当dependency数组里面是f1时，不管更新count还是a，都会执行里面的函数，打印出this is effect
     // 当dependency数组里面是fn时，只有更新a时才会执行该函数
+
+    const hanldeClick = () =>{
+        console.log("handle click function execute....")
+    }
+
     return (
         <>
 
@@ -28,14 +33,28 @@ function Counter() {
             <hr/>
             
             A: {a}
-            <hr/>
+
             <button onClick={() => setCount(count + 1)}>+</button>
             <button onClick={() => setCount(count - 1)}>-</button>
             <br />
             <button onClick={() => setA(a + 1)}>+</button>
             <button onClick={() => setA(a - 1)}>-</button>
+            <hr/>
+
+            <Portals>
+                <button onClick={ hanldeClick }>点击这里 </button>
+               
+            </Portals>
+
         </>
     );
 }
+
+
+function Portals(props){
+    return ReactDOM.createPortal(props.children, document.querySelector('#root'))
+}
+
+
 
 export default Counter
