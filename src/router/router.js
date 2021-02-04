@@ -13,6 +13,8 @@ const Hooks = React.lazy(() => import('../components/Hooks'))
 
 const MyHooks = React.lazy(() => import('../components/useCount'))
 
+const Ref = React.lazy(() => import('../components/Ref'))
+
 
 
 const Application = () => (
@@ -35,6 +37,11 @@ const Application = () => (
         <Suspense fallback={ <Loading /> }>
             <Switch>
                     <Route path="/my-hook" component={MyHooks}/>
+            </Switch>
+        </Suspense>
+        <Suspense fallback={ <Loading /> }>
+            <Switch>
+                    <Route path="/my-ref" component={ Ref }/>
             </Switch>
         </Suspense>
   </Router>
